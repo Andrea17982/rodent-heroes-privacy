@@ -14,13 +14,13 @@ claimed rewards, daily repeats, drop progress, stages and open battles with thei
 random seeds server-side, which are required to rebuild the outcome and are never sent to the client.</p>
 <p><strong>Purchases.</strong> Product identifier, type, Play order identifier, state (granted or revoked), dates and a
 cryptographic fingerprint (SHA-256) of the purchase token. We never receive or store card or payment details:
-payment happens on Google Play. The clear-text token is not stored.</p>
+payment happens on Google Play. The clear-text token is not stored. Google Play also sends us real-time notifications (via Google Cloud Pub/Sub) about purchase state, such as a refund, which we use to revoke what was granted.</p>
 <p><strong>Support.</strong> Granted compensations with reason and operator, and the corresponding movements.</p>
 <p><strong>Technical and security data.</strong> Technical records kept by the hosting provider to run the service and prevent
 abuse; anonymous deletion audit (guest yes/no, request and deletion day, accounting movements without any link to
 identity).</p>
 <p><strong>Backups.</strong> Encrypted copies of the test database on the controller's disk, outside cloud services, kept for at
-most seven days. The encryption key stays in the controller's private folder.</p>
+most seven days. The encryption key stays in the controller's private folder, with a copy in the controller's password manager.</p>
 <p><strong>Rewarded ads and privacy choices.</strong> We are integrating Google AdMob and Google User Messaging Platform
 (UMP); ads remain disabled as of this notice. Once enabled, the SDKs may process IP addresses, device and
 advertising identifiers, technical information and ad interactions, depending on configuration and privacy
@@ -45,7 +45,7 @@ We have not integrated separate analytics or crash reporting tools.</p>
 <ul>
 <li><strong>Supabase</strong>: database, authentication and server functions. Data may be processed outside the European Union
 under the provider's contractual safeguards (standard contractual clauses).</li>
-<li><strong>Google</strong>: Google sign-in, Google Play for purchases and refunds, AdMob ads if enabled.</li>
+<li><strong>Google</strong>: Google sign-in, Google Play for purchases and refunds (with notifications via Google Cloud Pub/Sub), AdMob ads if enabled.</li>
 <li><strong>GitHub Pages</strong>: hosts this notice; it receives no game data.</li>
 <li><strong>Authorities</strong>: when required by law.</li>
 </ul>
@@ -72,5 +72,5 @@ In the game: <strong>Settings → Your data</strong> to export your data and req
 <p>The game is not intended for children under 14. If a child's account was created by mistake, write to the contact
 above for deletion.</p>
 <h2 id="changes">9. Changes</h2>
-<p>Version 1.0, 22 October 2026. Material changes will be announced in the game before they take effect.</p>
+<p>Version 1.1, 23 October 2026. Material changes will be announced in the game before they take effect.</p>
 </main></html>

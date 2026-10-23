@@ -22,7 +22,7 @@ random seeds server-side, which are required to rebuild the outcome and are neve
 
 **Purchases.** Product identifier, type, Play order identifier, state (granted or revoked), dates and a
 cryptographic fingerprint (SHA-256) of the purchase token. We never receive or store card or payment details:
-payment happens on Google Play. The clear-text token is not stored.
+payment happens on Google Play. The clear-text token is not stored. Google Play also sends us real-time notifications (via Google Cloud Pub/Sub) about purchase state, such as a refund, which we use to revoke what was granted.
 
 **Support.** Granted compensations with reason and operator, and the corresponding movements.
 
@@ -31,7 +31,7 @@ abuse; anonymous deletion audit (guest yes/no, request and deletion day, account
 identity).
 
 **Backups.** Encrypted copies of the test database on the controller's disk, outside cloud services, kept for at
-most seven days. The encryption key stays in the controller's private folder.
+most seven days. The encryption key stays in the controller's private folder, with a copy in the controller's password manager.
 
 **Rewarded ads and privacy choices.** We are integrating Google AdMob and Google User Messaging Platform
 (UMP); ads remain disabled as of this notice. Once enabled, the SDKs may process IP addresses, device and
@@ -59,7 +59,7 @@ We have not integrated separate analytics or crash reporting tools.
 
 - **Supabase**: database, authentication and server functions. Data may be processed outside the European Union
   under the provider's contractual safeguards (standard contractual clauses).
-- **Google**: Google sign-in, Google Play for purchases and refunds, AdMob ads if enabled.
+- **Google**: Google sign-in, Google Play for purchases and refunds (with notifications via Google Cloud Pub/Sub), AdMob ads if enabled.
 - **GitHub Pages**: hosts this notice; it receives no game data.
 - **Authorities**: when required by law.
 
@@ -94,4 +94,4 @@ above for deletion.
 
 ## 9. Changes
 
-Version 1.0, 22 October 2026. Material changes will be announced in the game before they take effect.
+Version 1.1, 23 October 2026. Material changes will be announced in the game before they take effect.

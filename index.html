@@ -15,13 +15,13 @@ esito. Le battaglie aperte conservano sul server i semi casuali, necessari a ric
 mostrati al client.</p>
 <p><strong>Acquisti.</strong> Identificativo del prodotto, tipo, identificativo dell'ordine Play, stato (accreditato o revocato),
 date e un'impronta crittografica (SHA-256) del token di acquisto. Non riceviamo né conserviamo i dati della carta
-o del metodo di pagamento: il pagamento avviene su Google Play. Il token in chiaro non viene salvato.</p>
+o del metodo di pagamento: il pagamento avviene su Google Play. Il token in chiaro non viene salvato. Google Play ci invia anche notifiche in tempo reale (tramite Google Cloud Pub/Sub) sullo stato degli acquisti, per esempio un rimborso, che usiamo per revocare quanto accreditato.</p>
 <p><strong>Assistenza.</strong> Compensazioni concesse, con motivo e operatore, e i movimenti corrispondenti.</p>
 <p><strong>Dati tecnici e sicurezza.</strong> Registrazioni tecniche del fornitore di hosting per erogare il servizio e prevenire
 abusi; audit anonimo delle eliminazioni (ospite sì/no, giorno della richiesta e dell'eliminazione, movimenti
 contabili senza collegamento all'identità).</p>
 <p><strong>Backup.</strong> Copie cifrate del database di test su un disco del titolare, fuori dai servizi cloud, conservate per
-al massimo sette giorni. La chiave di cifratura resta nella cartella privata del titolare.</p>
+al massimo sette giorni. La chiave di cifratura resta nella cartella privata del titolare, con una copia nel suo gestore di password.</p>
 <p><strong>Annunci rewarded e consenso.</strong> Stiamo integrando Google AdMob e Google User Messaging Platform (UMP);
 alla data di questa informativa gli annunci restano disattivati. Quando attivati, gli SDK possono trattare indirizzo
 IP, identificatori del dispositivo e pubblicitari, informazioni tecniche e interazioni con gli annunci,
@@ -46,7 +46,7 @@ Non abbiamo integrato strumenti separati di analisi o crash reporting.</p>
 <ul>
 <li><strong>Supabase</strong>: database, autenticazione ed esecuzione delle funzioni server. I dati possono essere trattati
 fuori dall'Unione Europea con le garanzie contrattuali del fornitore (clausole contrattuali standard).</li>
-<li><strong>Google</strong>: accesso con Google, Google Play per acquisti e rimborsi, eventuali annunci AdMob se attivati.</li>
+<li><strong>Google</strong>: accesso con Google, Google Play per acquisti e rimborsi (con notifiche via Google Cloud Pub/Sub), eventuali annunci AdMob se attivati.</li>
 <li><strong>GitHub Pages</strong>: ospita questa informativa; non riceve dati di gioco.</li>
 <li><strong>Autorità</strong>: quando richiesto dalla legge.</li>
 </ul>
@@ -74,5 +74,5 @@ tuo Stato.</p>
 <p>Il gioco non è destinato a minori di 14 anni. Se un account di un minore fosse creato per errore, scrivi al
 contatto sopra per l'eliminazione.</p>
 <h2 id="modifiche">9. Modifiche</h2>
-<p>Versione 1.0, 22 ottobre 2026. Le modifiche sostanziali saranno comunicate nel gioco prima di diventare efficaci.</p>
+<p>Versione 1.1, 23 ottobre 2026. Le modifiche sostanziali saranno comunicate nel gioco prima di diventare efficaci.</p>
 </main></html>

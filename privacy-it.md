@@ -23,7 +23,7 @@ mostrati al client.
 
 **Acquisti.** Identificativo del prodotto, tipo, identificativo dell'ordine Play, stato (accreditato o revocato),
 date e un'impronta crittografica (SHA-256) del token di acquisto. Non riceviamo né conserviamo i dati della carta
-o del metodo di pagamento: il pagamento avviene su Google Play. Il token in chiaro non viene salvato.
+o del metodo di pagamento: il pagamento avviene su Google Play. Il token in chiaro non viene salvato. Google Play ci invia anche notifiche in tempo reale (tramite Google Cloud Pub/Sub) sullo stato degli acquisti, per esempio un rimborso, che usiamo per revocare quanto accreditato.
 
 **Assistenza.** Compensazioni concesse, con motivo e operatore, e i movimenti corrispondenti.
 
@@ -32,7 +32,7 @@ abusi; audit anonimo delle eliminazioni (ospite sì/no, giorno della richiesta e
 contabili senza collegamento all'identità).
 
 **Backup.** Copie cifrate del database di test su un disco del titolare, fuori dai servizi cloud, conservate per
-al massimo sette giorni. La chiave di cifratura resta nella cartella privata del titolare.
+al massimo sette giorni. La chiave di cifratura resta nella cartella privata del titolare, con una copia nel suo gestore di password.
 
 **Annunci rewarded e consenso.** Stiamo integrando Google AdMob e Google User Messaging Platform (UMP);
 alla data di questa informativa gli annunci restano disattivati. Quando attivati, gli SDK possono trattare indirizzo
@@ -60,7 +60,7 @@ Non abbiamo integrato strumenti separati di analisi o crash reporting.
 
 - **Supabase**: database, autenticazione ed esecuzione delle funzioni server. I dati possono essere trattati
   fuori dall'Unione Europea con le garanzie contrattuali del fornitore (clausole contrattuali standard).
-- **Google**: accesso con Google, Google Play per acquisti e rimborsi, eventuali annunci AdMob se attivati.
+- **Google**: accesso con Google, Google Play per acquisti e rimborsi (con notifiche via Google Cloud Pub/Sub), eventuali annunci AdMob se attivati.
 - **GitHub Pages**: ospita questa informativa; non riceve dati di gioco.
 - **Autorità**: quando richiesto dalla legge.
 
@@ -96,4 +96,4 @@ contatto sopra per l'eliminazione.
 
 ## 9. Modifiche
 
-Versione 1.0, 22 ottobre 2026. Le modifiche sostanziali saranno comunicate nel gioco prima di diventare efficaci.
+Versione 1.1, 23 ottobre 2026. Le modifiche sostanziali saranno comunicate nel gioco prima di diventare efficaci.
